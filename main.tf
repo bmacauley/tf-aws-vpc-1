@@ -1,8 +1,6 @@
-resource "aws_vpc" "vpc" {
-  cidr_block = "${var.vpc_cidr}"
+resource "aws_vpc" "main" {
+  cidr_block = "${var.cidr}"
+  tags       = "${var.tags}"
 
-  tags {
-    Name      = "${var.vpc_tag_name}"
-    Terraform = "true"
-  }
+  #lifecycle  = "${var.lifecycle}"
 }

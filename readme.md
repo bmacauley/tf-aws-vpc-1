@@ -13,8 +13,12 @@
 module "aws_vpc" {
   source = "github.com/ellerbrock/tf-aws-vpc"
 
-  vpc_cidr     = "10.0.0.0/16"
-  vpc_tag_name = "my-vpc"
+  cidr = "10.0.0.0/16"
+  
+  tags = {
+    Name      = "${module.aws_iam_alias.account_id}"
+    terraform = "true"
+  }
 }
 ```
 
@@ -30,8 +34,12 @@ module "aws_iam_alias" {
 module "aws_vpc" {
   source = "github.com/ellerbrock/tf-aws-vpc"
 
-  vpc_cidr     = "10.0.0.0/16"
-  vpc_tag_name = "${module.aws_iam_alias.account_id}"
+  cidr     = "10.0.0.0/16"
+  
+  tags = {
+    Name      = "${module.aws_iam_alias.account_id}"
+    terraform = "true"
+  }
 }
 ```
 

@@ -1,7 +1,14 @@
-variable "vpc_cidr" {
-  description = "vpc cidr"
+variable "cidr" {
+  description = "cidr"
+  default     = ""
 }
 
-variable "vpc_tag_name" {
+variable "tags" {
   description = "tag"
+  default     = {}
+}
+
+variable "lifecycle" {
+  description = "lifecycle"
+  default     = {}
 }
